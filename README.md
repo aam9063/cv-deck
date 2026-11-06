@@ -1,13 +1,43 @@
-# Albert Alarc\u00f3n - Junior Product Engineer
+# Albert Alarcón Martínez — CV
 
-Albert Alarc\u00f3n Mart\u00ednez · built with [beatdeck](https://github.com/borjaperfra/beatdeck).
+Mi CV como presentación interactiva en vez de PDF: un escenario fijo 1920×1080 donde cada click es un beat —
+perfil, experiencia, proyectos (con diagrama animado de Energy Ops Hub), código abierto, stack y contacto.
+Offline, determinista, sin backend.
+
+**Construido con [beatdeck](https://github.com/borjaperfra/beatdeck)**, el motor de talks de
+[@borjaperfra](https://github.com/borjaperfra).
+
+## Ver el CV
 
 ```bash
 npm install
 npm run dev          # http://127.0.0.1:5173/#1.1
-npm run present      # production build, opened locally (works offline)
-npm run verify       # every beat checked → artifacts/verify/
-npm run upgrade      # bring the engine up to date (never touches deck/)
 ```
 
-The talk lives in `deck/`. See `AGENTS.md` and `skills/building-a-beatdeck/SKILL.md`.
+Click o → para avanzar, ← para retroceder, O para la vista general, P para la ventana de presentador.
+
+## Comandos
+
+| | |
+| --- | --- |
+| `npm run dev` | servidor de desarrollo |
+| `npm run build` | compila y genera `dist/` (estático, autocontenido) |
+| `npm run present` | build de producción, abierto en local |
+| `npm run verify` | recorre cada beat (adelante, atrás, recargado) y compara frames |
+
+## Estructura
+
+El contenido vive en [`deck/`](deck):
+
+```
+deck/
+  deck.config.ts   título, autor, QR
+  scenes.ts        mapa de beats: escenas → beats
+  scenes/*.tsx      una escena por archivo
+```
+
+El motor (`src/beatdeck/`) nunca se toca a mano — viene de beatdeck y se actualiza con `npm run upgrade`.
+
+## Licencia
+
+MIT para el motor y el código, heredado de [beatdeck](https://github.com/borjaperfra/beatdeck).
